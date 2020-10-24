@@ -1,0 +1,131 @@
+
+<%- include('./layouts/header') %>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+<header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b></b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Admin</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <%- include('./layouts/nav') %>
+  </header>
+
+
+<%- include('./layouts/sidenav') %>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+            <h1>
+             View Employees
+              <small>View Employees</small>
+            </h1>
+            <ol class="breadcrumb">
+              <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+             
+              <li class="active">View Employees</li>
+            </ol>
+          </section>
+
+          <div class="col-md-12">
+                <!-- Horizontal Form -->
+                <div class="box box-info">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">View Employees</h3>
+                  </div>
+   
+    
+                </div>
+                <div class="col-md-4"></div>
+                </div>
+                <form action="/api/user/search" method="GET">
+                    <div class="col-md-4">
+                        <input type="text" name="key" >
+                        <input type="submit" value="Search">
+                    </div>
+                </form>
+
+
+
+
+
+                <form action="/api/user/filter" method="GET">
+                    <div  class="col-md-4">
+                        <select class="form-control" name="filter" id="filter" required>
+                          <option value="">Select</option>
+        
+                              
+                          <option value="a">Sort Ascending by  Created Date</option>
+                          <option value="b">Sort Descending Created Date </option>
+                             
+                                </select>
+                             </div>
+                             <input type="submit" value="filter">
+                           
+                </form>
+               
+
+
+              <div class="box-footer ">
+                  
+                 <table class="table table-bordered table-responsive " >
+                     <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Designation</th>
+                                <th>Created At</th>
+                              
+                       
+                       </tr>
+                       <% data.forEach(function(user) { %>
+                       <tr>
+                              
+                                <td><%=user.firstname%></td>
+                                <td><%=user.lastname%></td>
+                                <td><%=user.email%></td>
+                                <td><%=user.designation%></td>
+                                <td><%=user.createdAt%></td>
+
+
+                              
+                         </tr>
+                       <% }) %>
+                 </table>
+
+               
+                
+                
+               
+             </div>
+
+              </div>
+           
+
+   <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 2.4.0
+      </div>
+      <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+      reserved.
+    </footer>
+  
+    <div class="control-sidebar-bg">
+  </div>
+
+
+
+
+   <%- include('./layouts/footer') %>
+  
+  </body>
+    
+  
+
+       
+   
+   
